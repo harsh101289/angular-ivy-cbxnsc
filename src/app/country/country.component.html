@@ -1,0 +1,24 @@
+<div>
+  <div>
+  <ng-container *ngFor = "let university of universityList">
+{{university | filter:state}}
+  </ng-container>
+  <div>
+    <input type="text" name="search" [[ngModel]]="name" placeholder = "Searching for...">
+  </div>
+  <table>
+    <tr>
+      <th>S.No.</th>
+      <th>Name</th>
+      <th>State Province</th>
+      <th>Domain</th>
+      <th>Web Page</th>
+    </tr>
+    <tr *ngFor = "let university of universityList | filter:name">
+      <td>{{index++}}</td>
+      <td>{{university.name}}</td>
+      <td>{{university.state-province}}</td>
+      <td>{{university.domains}}</td>
+      <td>{{university.web_pages}}</td>
+    </tr>
+  </table>
